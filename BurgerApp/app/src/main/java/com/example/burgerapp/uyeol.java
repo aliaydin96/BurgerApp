@@ -1,5 +1,4 @@
 package com.example.burgerapp;
-import java.util.*;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,7 +10,6 @@ import android.widget.ImageView;
 public class uyeol extends Activity {
     Button save_button, cancel_button;
     EditText username_et, password_et, password_et_2;
-    Dictionary dictionary = new Hashtable();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,12 +29,6 @@ public class uyeol extends Activity {
                 String text_password = password_et.getText().toString();
                 String text_2_password = password_et_2.getText().toString();
                 if(text_password.contentEquals(text_2_password)){
-                    dictionary.put(username_et.getText().toString(), text_password);
-                    for (int i = 0; i < dictionary.size(); i++){
-                        System.out.print("Keys in Dictionary : " + dictionary.keys().nextElement());
-                        System.out.println(" Value in Dictionary : " + dictionary.elements().nextElement());
-
-                    }
 
                     Toast.makeText(getApplicationContext(), "Kullanici kayit edilmistir.", Toast.LENGTH_SHORT).show();
                     //Intent intent = new Intent(getApplicationContext(), MainActivity.class);
