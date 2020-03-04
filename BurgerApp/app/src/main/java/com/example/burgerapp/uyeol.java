@@ -24,8 +24,6 @@ public class uyeol extends Activity {
         save_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
                 String text_password = password_et.getText().toString();
                 String text_2_password = password_et_2.getText().toString();
                 if(text_password.contentEquals(text_2_password)){

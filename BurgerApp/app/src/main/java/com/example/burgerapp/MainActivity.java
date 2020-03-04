@@ -35,8 +35,14 @@ public class MainActivity extends AppCompatActivity {
 
                 if ((text.contentEquals("ali")) & (password.contentEquals("123"))) {
                     Toast.makeText(getApplicationContext(), "Dogru", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(getApplicationContext(), siparisekrani.class);
+                    startActivity(intent);
+                }
+                else if((text.contentEquals("admin")) & (password.contentEquals("123"))){
 
-                } else {
+                }
+
+                else {
                     Toast.makeText(getApplicationContext(), "Yanlis", Toast.LENGTH_SHORT).show();
 
                 }
