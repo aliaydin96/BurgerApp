@@ -39,7 +39,8 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(intent);
                 }
                 else if((text.contentEquals("admin")) & (password.contentEquals("123"))){
-
+                    Intent intent = new Intent(getApplicationContext(), yoneticiekrani.class);
+                    startActivity(intent);
                 }
 
                 else {
