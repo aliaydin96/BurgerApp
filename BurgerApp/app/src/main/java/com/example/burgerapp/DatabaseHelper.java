@@ -76,34 +76,26 @@ public class DatabaseHelper extends SQLiteOpenHelper {
      * @param name
      * @return
      */
-    public List<String> getItemID(){
+    public List<String> getItemUsername(){
         SQLiteDatabase db = this.getWritableDatabase();
-        //String [] sutunlar = new String[]{COL2, COL3};
-
         Cursor cursor = (Cursor) db.query(TABLE_NAME, new String[]{COL2},null,null,null,null,null);
         int usernamesirano = cursor.getColumnIndex(COL2);
-        //int passwordsirano = cursor.getColumnIndex(COL3);
-
         List<String> usernameliste = new ArrayList<>();
-        //List<String> passwordliste = new ArrayList<>();
         for (cursor.moveToFirst(); !cursor.isAfterLast();cursor.moveToNext()){
             usernameliste.add(cursor.getString(usernamesirano));
-            //usernameliste.add(cursor.getString(passwordsirano));
         }
-
-
-/*        String query = "SELECT " + COL1 + " FROM " + TABLE_NAME +
-                " WHERE " + COL2;
-        Cursor data = db.rawQuery(query, null);
-        List<String> usernameliste = new ArrayList<>();
-
-        for (data.moveToFirst(); !data.isAfterLast();data.moveToNext()){
-            usernameliste.add(data.getString(data.getColumnIndex("content")));
-        }*/
-
         return usernameliste;
     }
-
+    public List<String> getItemPassword(){
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = (Cursor) db.query(TABLE_NAME, new String[]{COL3},null,null,null,null,null);
+        int passwordsirano = cursor.getColumnIndex(COL3);
+        List<String> passwordliste = new ArrayList<>();
+        for (cursor.moveToFirst(); !cursor.isAfterLast();cursor.moveToNext()){
+            passwordliste.add(cursor.getString(passwordsirano));
+        }
+        return passwordliste;
+    }
     /**
      * Updates the name field
      * @param newName

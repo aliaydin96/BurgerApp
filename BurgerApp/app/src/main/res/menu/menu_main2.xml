@@ -1,11 +1,11 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".yoneticiekrani">
+    tools:context=".uyelistesi">
     <item
-        android:id="@+id/action_settings"
+        android:id="@+id/delete_member"
         android:orderInCategory="100"
-        android:title="@string/action_settings"
+        android:title="Uyelerin Hepsini Sil"
         app:showAsAction="never" />
 
 </menu>
