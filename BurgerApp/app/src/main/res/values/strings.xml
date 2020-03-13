@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">DEU Burger</string>
     <string name="title_activity_yoneticiekrani">yoneticiekrani</string>
+    <string name="userNameAndPassword">usernama</string>
+    <string name="action_settings">Uye Listesi</string>
 
     <string-array name="masano">
         <item>1</item>
