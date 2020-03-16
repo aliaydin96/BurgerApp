@@ -78,7 +78,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
      */
     public List<String> getItemUsername(){
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor cursor = (Cursor) db.query(TABLE_NAME, new String[]{COL2},null,null,null,null,null);
+        Cursor cursor = db.query(TABLE_NAME, new String[]{COL2},null,null,null,null,null);
         int usernamesirano = cursor.getColumnIndex(COL2);
         List<String> usernameliste = new ArrayList<>();
         for (cursor.moveToFirst(); !cursor.isAfterLast();cursor.moveToNext()){
@@ -88,7 +88,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
     public List<String> getItemPassword(){
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor cursor = (Cursor) db.query(TABLE_NAME, new String[]{COL3},null,null,null,null,null);
+        Cursor cursor = db.query(TABLE_NAME, new String[]{COL3},null,null,null,null,null);
         int passwordsirano = cursor.getColumnIndex(COL3);
         List<String> passwordliste = new ArrayList<>();
         for (cursor.moveToFirst(); !cursor.isAfterLast();cursor.moveToNext()){
