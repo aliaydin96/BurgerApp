@@ -31,7 +31,7 @@ public class siparisekraniliste extends AppCompatActivity {
         bbqburger_fiyat = bbqburger_counter * bbqburger_fiyat;
         mushroomburger_fiyat = mushroomburger_fiyat * mushroomburger_counter;
         // Get the widgets reference from XML layout
-        LinearLayout linearLayout =  findViewById(R.id.linearLayoutUyelistesi);
+        LinearLayout linearLayout =  findViewById(R.id.linearLayout);
 
         if(bbqburger_counter > 0){
             TextView tv = new TextView(getApplicationContext());

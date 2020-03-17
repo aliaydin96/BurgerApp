@@ -18,7 +18,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String TAG = "DatabaseHelper";
 
     private static final String TABLE_NAME = "people_table";
-    private static final String COL1 = "ID";
+    private static String COL1 = "ID";
     private static final String COL2 = "username";
     private static final String COL3 = "password";
 
@@ -30,7 +30,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String createTable = "CREATE TABLE " + TABLE_NAME + " ("+COL1+" INTEGER PRIMARY KEY AUTOINCREMENT, " +
+        String createTable = "CREATE TABLE " + TABLE_NAME + " ("+COL1+" NUMBER, " +
                 COL2 +" TEXT," + COL3 +" TEXT)";
         db.execSQL(createTable);
     }
@@ -41,9 +41,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public boolean addData(String username, String password) {
+    public boolean addData(int number, String username, String password) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
+        contentValues.put(COL1, number);
         contentValues.put(COL2, username);
         contentValues.put(COL3, password);
 
@@ -76,25 +77,27 @@ public class DatabaseHelper extends SQLiteOpenHelper {
      * @param name
      * @return
      */
-    public List<String> getItemUsername(){
+    public List<String> getUsername(){
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor cursor = db.query(TABLE_NAME, new String[]{COL2},null,null,null,null,null);
+        String [] sutunlar = new String[]{COL2};
+        Cursor cursor = (Cursor) db.query(TABLE_NAME, sutunlar,null,null,null,null,null);
         int usernamesirano = cursor.getColumnIndex(COL2);
-        List<String> usernameliste = new ArrayList<>();
+        List<String> usernameListe = new ArrayList<>();
         for (cursor.moveToFirst(); !cursor.isAfterLast();cursor.moveToNext()){
-            usernameliste.add(cursor.getString(usernamesirano));
+            usernameListe.add(cursor.getString(usernamesirano));
         }
-        return usernameliste;
+        return usernameListe;
     }
-    public List<String> getItemPassword(){
+    public List<String> getPassword(){
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor cursor = db.query(TABLE_NAME, new String[]{COL3},null,null,null,null,null);
+        String [] sutunlar = new String[]{COL3};
+        Cursor cursor = (Cursor) db.query(TABLE_NAME, sutunlar,null,null,null,null,null);
         int passwordsirano = cursor.getColumnIndex(COL3);
-        List<String> passwordliste = new ArrayList<>();
+        List<String> passwordListe = new ArrayList<>();
         for (cursor.moveToFirst(); !cursor.isAfterLast();cursor.moveToNext()){
-            passwordliste.add(cursor.getString(passwordsirano));
+            passwordListe.add(cursor.getString(passwordsirano));
         }
-        return passwordliste;
+        return passwordListe;
     }
     /**
      * Updates the name field
@@ -117,13 +120,19 @@ public class DatabaseHelper extends SQLiteOpenHelper {
      * @param id
      * @param name
      */
-    public void deleteName(int id, String name){
+    public void deleteAllName(int id){
         SQLiteDatabase db = this.getWritableDatabase();
+        String query = "DELETE FROM " + TABLE_NAME + " WHERE "
+                + COL1 + " = '" + id + "'";
+        Log.d(TAG, "deleteName: query: " + query);
+        /*
         String query = "DELETE FROM " + TABLE_NAME + " WHERE "
                 + COL1 + " = '" + id + "'" +
                 " AND " + COL2 + " = '" + name + "'";
         Log.d(TAG, "deleteName: query: " + query);
-        Log.d(TAG, "deleteName: Deleting " + name + " from database.");
+        Log.d(TAG, "deleteName: Deleting " + name + " from database.");*/
+
         db.execSQL(query);
+
     }
 }

@@ -7,6 +7,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 import android.widget.ImageView;
+
+import java.util.List;
+
 public class uyeol extends Activity {
     Button save_button, cancel_button;
     EditText username_et, password_et, password_et_2;
@@ -23,19 +26,30 @@ public class uyeol extends Activity {
         username_et = findViewById(R.id.username_uyeol);
         password_et = findViewById(R.id.password_uyeol);
         password_et_2 = findViewById(R.id.password_uyeol_2);
-
+        final List<String> username = mDatabaseHelper.getUsername();
         save_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String username_str = username_et.getText().toString();
                 String text_password = password_et.getText().toString();
                 String text_2_password = password_et_2.getText().toString();
-                if(text_password.contentEquals(text_2_password)){
+                int counter = 0;
+                boolean username_existence = false;
+                while ( username.size()> counter){
+                    if(username_str.contentEquals(username.get(counter))) {
+                        Toast.makeText(getApplicationContext(), "Kullanici adi daha once alinmistir!", Toast.LENGTH_SHORT).show();
+                        username_existence = true;
+                    }
+                    counter++;
+                }
+
+                if(text_password.contentEquals(text_2_password) & username_existence == false){
                     Toast.makeText(getApplicationContext(), "Kullanici kayit edilmistir.", Toast.LENGTH_SHORT).show();
-                    AddData(username_et.getText().toString(),text_password);
+                    AddData(username.size(), username_et.getText().toString(),text_password);
                     Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                     startActivity(intent);
                 }
-                else {
+                else if(username_existence == false){
                     Toast.makeText(getApplicationContext(), "Sifreler ayni degil!!!", Toast.LENGTH_SHORT).show();
                 }
 
@@ -53,8 +67,8 @@ public class uyeol extends Activity {
 
     }
 
-    public void AddData(String username, String password) {
-        boolean insertData = mDatabaseHelper.addData(username, password);
+    public void AddData(int number, String username, String password) {
+        boolean insertData = mDatabaseHelper.addData(number, username, password);
 
         if (insertData) {
             toastMessage("Data Successfully Inserted!");
