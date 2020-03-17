@@ -33,16 +33,24 @@ public class MainActivity extends AppCompatActivity {
         burgerimg = findViewById(R.id.burgerimg);
         burgerimg.setImageResource(R.mipmap.ham);
 
-       // List<String> username = new ArrayList<>();
-        //username = (List<String>) mDatabaseHelper.getItemID();
+        final List<String> username = mDatabaseHelper.getUsername();
+        final List<String> password = mDatabaseHelper.getPassword();
         girisyap_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String inputUserName = username_et.getText().toString();
                 String inputPassword = password_et.getText().toString();
+                int counter = 0;
+                boolean correction = false;
+                while ( username.size()> counter){
+                    if ((inputUserName.contentEquals(username.get(counter))) & (inputPassword.contentEquals(password.get(counter)))) {
+                        correction = true;
 
-                if ((inputUserName.contentEquals("ali")) & (inputPassword.contentEquals("123"))) {
-                    Toast.makeText(getApplicationContext(), "Dogru", Toast.LENGTH_SHORT).show();
+                    }
+                    counter++;
+                }
+                if(correction == true){
+                    Toast.makeText(getApplicationContext(), "Kullanici adi ve sifre Dogru", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(getApplicationContext(), siparisekrani.class);
                     startActivity(intent);
                 }
@@ -52,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 else {
-                    Toast.makeText(getApplicationContext(), "Yanlis", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Kullanici adi veya sifre yanlis", Toast.LENGTH_SHORT).show();
 
                 }
 
