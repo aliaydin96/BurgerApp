@@ -35,14 +35,6 @@ public class yoneticiekrani extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
         foodDatabaseHelper = new FoodDatabaseHelper(this);
         hepsiniSil_button = findViewById(R.id.hepsiniSilYonetici_button);
         final List<String> foodData = foodDatabaseHelper.getFoodData();
@@ -55,9 +47,10 @@ public class yoneticiekrani extends AppCompatActivity {
                     RelativeLayout.LayoutParams.WRAP_CONTENT); // Height of TextView
             tv.setTextSize(22);
             tv.setLayoutParams(lp);
-            tv.setText(foodData.get(foodData.size() - counter - 3) + " - " + foodData.get(foodData.size() - counter - 2) + " - " + foodData.get(foodData.size() - counter - 1));
+            tv.setText(foodData.get(foodData.size() - counter - 4) + " - " + foodData.get(foodData.size() - counter - 3) + " - " + foodData.get(foodData.size() - counter - 2));
             tv.setTextColor(Color.parseColor("#000000"));
             linearLayout.addView(tv);
+            counter++;
             counter++;
             counter++;
             counter++;

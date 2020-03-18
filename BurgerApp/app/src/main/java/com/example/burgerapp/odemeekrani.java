@@ -3,6 +3,7 @@ package com.example.burgerapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -10,7 +11,10 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 public class odemeekrani extends AppCompatActivity {
     FoodDatabaseHelper foodDatabaseHelper;
@@ -31,6 +35,7 @@ public class odemeekrani extends AppCompatActivity {
         odemeyap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String date = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date());
                 String masaNo = spinner.getSelectedItem().toString();
                 int counter = 0;
                 boolean bbqburger_existence = false;
@@ -39,20 +44,20 @@ public class odemeekrani extends AppCompatActivity {
                     if((bbqburger_counter > 0) & (foodData.get(counter).contentEquals("BBQ Burger"))){
                         bbqburger_existence = true;
                         int number = Integer.parseInt(foodData.get(counter+1)) + bbqburger_counter;
-                        foodDatabaseHelper.addFoodData(masaNo,"BBQ Burger", number);
+                        foodDatabaseHelper.addFoodData(masaNo,"BBQ Burger", number, date);
                     }
                     if((mushroomburger_counter > 0) & (foodData.get(counter).contentEquals("Mushroom Burger"))){
                         mushroomburger_existence = true;
                         int number = Integer.parseInt(foodData.get(counter+1)) + mushroomburger_counter;
-                        foodDatabaseHelper.addFoodData(masaNo,"Mushroom Burger", number);
+                        foodDatabaseHelper.addFoodData(masaNo,"Mushroom Burger", number, date);
                     }
                     counter++;
                 }
                 if((bbqburger_existence == false) & (bbqburger_counter > 0)){
-                    foodDatabaseHelper.addFoodData(masaNo,"BBQ Burger", bbqburger_counter);
+                    foodDatabaseHelper.addFoodData(masaNo,"BBQ Burger", bbqburger_counter, date);
                 }
                 if((mushroomburger_existence == false) & (mushroomburger_counter > 0)){
-                    foodDatabaseHelper.addFoodData(masaNo,"Mushroom Burger", mushroomburger_counter);
+                    foodDatabaseHelper.addFoodData(masaNo,"Mushroom Burger", mushroomburger_counter, date);
                 }
                 Toast.makeText(getApplicationContext(),"Odeme islemi tamamlandi.", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);

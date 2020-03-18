@@ -34,13 +34,13 @@ public class FoodDatabaseHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public boolean addFoodData(String masaNo, String foodName, int foodNumber) {//, String date
+    public boolean addFoodData(String masaNo, String foodName, int foodNumber, String date) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(COL1, masaNo);
         contentValues.put(COL2, foodName);
         contentValues.put(COL3, foodNumber);
-       // contentValues.put(COL4, date);
+        contentValues.put(COL4, date);
 
         //Log.d(TAG, "addData: Adding " + item + " to " + TABLE_NAME);
 
@@ -61,13 +61,13 @@ public class FoodDatabaseHelper extends SQLiteOpenHelper {
         int masanosirano = cursor.getColumnIndex(COL1);
         int foodNamesirano = cursor.getColumnIndex(COL2);
         int foodNumbersirano = cursor.getColumnIndex(COL3);
-        //int datesirano = cursor.getColumnIndex(COL3);
+        int datesirano = cursor.getColumnIndex(COL4);
         List<String> foodData = new ArrayList<>();
         for (cursor.moveToFirst(); !cursor.isAfterLast();cursor.moveToNext()){
             foodData.add(cursor.getString(masanosirano));
             foodData.add(cursor.getString(foodNamesirano));
             foodData.add(cursor.getString(foodNumbersirano));
-            //foodData.add(cursor.getString(datesirano));
+            foodData.add(cursor.getString(datesirano));
         }
         return foodData;
     }
