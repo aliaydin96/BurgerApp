@@ -37,28 +37,14 @@ public class odemeekrani extends AppCompatActivity {
             public void onClick(View v) {
                 String date = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date());
                 String masaNo = spinner.getSelectedItem().toString();
-                int counter = 0;
-                boolean bbqburger_existence = false;
-                boolean mushroomburger_existence = false;
-                while (foodData.size() > counter){
-                    if((bbqburger_counter > 0) & (foodData.get(counter).contentEquals("BBQ Burger"))){
-                        bbqburger_existence = true;
-                        int number = Integer.parseInt(foodData.get(counter+1)) + bbqburger_counter;
-                        foodDatabaseHelper.addFoodData(masaNo,"BBQ Burger", number, date);
-                    }
-                    if((mushroomburger_counter > 0) & (foodData.get(counter).contentEquals("Mushroom Burger"))){
-                        mushroomburger_existence = true;
-                        int number = Integer.parseInt(foodData.get(counter+1)) + mushroomburger_counter;
-                        foodDatabaseHelper.addFoodData(masaNo,"Mushroom Burger", number, date);
-                    }
-                    counter++;
-                }
-                if((bbqburger_existence == false) & (bbqburger_counter > 0)){
+                if(bbqburger_counter > 0){
+
                     foodDatabaseHelper.addFoodData(masaNo,"BBQ Burger", bbqburger_counter, date);
                 }
-                if((mushroomburger_existence == false) & (mushroomburger_counter > 0)){
+                if(mushroomburger_counter > 0){
                     foodDatabaseHelper.addFoodData(masaNo,"Mushroom Burger", mushroomburger_counter, date);
                 }
+
                 Toast.makeText(getApplicationContext(),"Odeme islemi tamamlandi.", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(intent);
