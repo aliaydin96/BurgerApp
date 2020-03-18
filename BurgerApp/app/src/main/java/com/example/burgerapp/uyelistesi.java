@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -21,7 +22,7 @@ public class uyelistesi extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_uyelistesi);
         mDatabaseHelper = new DatabaseHelper(this);
-        hepsiniSil_button = findViewById(R.id.hepsiniSil_button);
+        hepsiniSil_button = findViewById(R.id.hepsiniSilYonetici_button);
         final List<String> username = mDatabaseHelper.getUsername();
         List<String> password = mDatabaseHelper.getPassword();
         LinearLayout linearLayout =  findViewById(R.id.linearLayout);
@@ -47,7 +48,11 @@ public class uyelistesi extends AppCompatActivity {
                     mDatabaseHelper.deleteAllName(counter);
                     counter++;
                 }
+                Toast.makeText(getApplicationContext(), "Silme islemi tamamlandi.", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getApplicationContext(), yoneticiekrani.class);
+                startActivity(intent);
             }
         });
+
     }
 }

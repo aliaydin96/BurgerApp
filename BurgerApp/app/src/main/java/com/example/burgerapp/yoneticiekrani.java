@@ -12,18 +12,22 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class yoneticiekrani extends AppCompatActivity {
-
+    FoodDatabaseHelper foodDatabaseHelper;
+    Button hepsiniSil_button;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +43,39 @@ public class yoneticiekrani extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+        foodDatabaseHelper = new FoodDatabaseHelper(this);
+        hepsiniSil_button = findViewById(R.id.hepsiniSilYonetici_button);
+        final List<String> foodData = foodDatabaseHelper.getFoodData();
+        LinearLayout linearLayout =  findViewById(R.id.linearLayout_yoneticiekrani);
+        int counter = 0;
+        while ( foodData.size()> counter){
+            TextView tv = new TextView(getApplicationContext());
+            LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
+                    RelativeLayout.LayoutParams.WRAP_CONTENT, // Width of TextView
+                    RelativeLayout.LayoutParams.WRAP_CONTENT); // Height of TextView
+            tv.setTextSize(22);
+            tv.setLayoutParams(lp);
+            tv.setText(foodData.get(foodData.size() - counter - 3) + " - " + foodData.get(foodData.size() - counter - 2) + " - " + foodData.get(foodData.size() - counter - 1));
+            tv.setTextColor(Color.parseColor("#000000"));
+            linearLayout.addView(tv);
+            counter++;
+            counter++;
+            counter++;
+        }
+        hepsiniSil_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int counter = 0;
+                while (foodData.size()> counter) {
+                    foodDatabaseHelper.deleteAllFood(counter);
+                    counter++;
+                }
+                Toast.makeText(getApplicationContext(), "Silme islemi tamamlandi.", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
     @Override
@@ -63,5 +100,13 @@ public class yoneticiekrani extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK ) {
+            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+            startActivity(intent);
+        }
+        return super.onKeyDown(keyCode, event);
     }
 }

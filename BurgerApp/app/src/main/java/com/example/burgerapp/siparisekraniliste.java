@@ -26,8 +26,8 @@ public class siparisekraniliste extends AppCompatActivity {
         odemeyap = findViewById(R.id.odemeyap);
 
         Bundle gelenveri = getIntent().getExtras();
-        int bbqburger_counter = gelenveri.getInt("bbqburger");
-        int mushroomburger_counter = gelenveri.getInt("mushroomburger");
+        final int bbqburger_counter = gelenveri.getInt("bbqburger");
+        final int mushroomburger_counter = gelenveri.getInt("mushroomburger");
         bbqburger_fiyat = bbqburger_counter * bbqburger_fiyat;
         mushroomburger_fiyat = mushroomburger_fiyat * mushroomburger_counter;
         // Get the widgets reference from XML layout
@@ -74,6 +74,8 @@ public class siparisekraniliste extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), odemeekrani.class);
+                intent.putExtra("bbqburger", bbqburger_counter);
+                intent.putExtra("mushroomburger", mushroomburger_counter);
                 startActivity(intent);
             }
         });
