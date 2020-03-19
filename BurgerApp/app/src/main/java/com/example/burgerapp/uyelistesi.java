@@ -25,7 +25,7 @@ public class uyelistesi extends AppCompatActivity {
         hepsiniSil_button = findViewById(R.id.hepsiniSilYonetici_button);
         final List<String> username = mDatabaseHelper.getUsername();
         List<String> password = mDatabaseHelper.getPassword();
-        LinearLayout linearLayout =  findViewById(R.id.linearLayout);
+        LinearLayout linearLayout =  findViewById(R.id.linearLayoutUyelistesi);
         int counter = 0;
         while ( username.size()> counter){
             TextView tv = new TextView(getApplicationContext());
