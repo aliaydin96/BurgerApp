@@ -350,7 +350,7 @@
                     android:layout_height="match_parent">
 
                     <Button
-                        android:id="@+id/doubleclassicburger_cikar"
+                        android:id="@+id/doublecheeseburger_cikar"
                         android:layout_width="39dp"
                         android:layout_height="39dp"
                         android:layout_marginStart="8dp"
@@ -391,7 +391,7 @@
                         tools:srcCompat="@mipmap/doubleclassicburger" />
 
                     <Button
-                        android:id="@+id/doubleclassicburger_ekle"
+                        android:id="@+id/doublecheeseburger_ekle"
                         android:layout_width="39dp"
                         android:layout_height="39dp"
                         android:layout_marginStart="8dp"
@@ -413,7 +413,7 @@
                         app:layout_constraintVertical_bias="0.0" />
 
                     <EditText
-                        android:id="@+id/doubleclassicburger_number"
+                        android:id="@+id/doublecheeseburger_number"
                         android:layout_width="39dp"
                         android:layout_height="39dp"
                         android:layout_marginStart="8dp"
@@ -489,7 +489,7 @@
                         android:layout_marginEnd="8dp"
                         android:layout_marginRight="8dp"
                         android:layout_marginBottom="8dp"
-                        android:text="Double Classic Burger"
+                        android:text="Double Cheese Burger"
                         android:textColor="#000000"
                         android:textSize="24sp"
                         app:layout_constraintBottom_toBottomOf="parent"
