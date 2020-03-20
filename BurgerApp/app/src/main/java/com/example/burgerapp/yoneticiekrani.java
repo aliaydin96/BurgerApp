@@ -91,7 +91,11 @@ public class yoneticiekrani extends AppCompatActivity {
             startActivity(intent);
             return true;
         }
-
+        if (id == R.id.graph) {
+            Intent intent = new Intent(getApplicationContext(), Grafikekrani.class);
+            startActivity(intent);
+            return true;
+        }
         return super.onOptionsItemSelected(item);
     }
     @Override
