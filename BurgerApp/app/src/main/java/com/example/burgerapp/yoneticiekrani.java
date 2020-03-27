@@ -47,7 +47,7 @@ public class yoneticiekrani extends AppCompatActivity {
                     RelativeLayout.LayoutParams.WRAP_CONTENT); // Height of TextView
             tv.setTextSize(22);
             tv.setLayoutParams(lp);
-            tv.setText(foodData.get(foodData.size() - counter - 4) + " - " + foodData.get(foodData.size() - counter - 3) + " - " + foodData.get(foodData.size() - counter - 2));
+            tv.setText(foodData.get(foodData.size() - counter - 4) + " - " + foodData.get(foodData.size() - counter - 3) + " - " + foodData.get(foodData.size() - counter - 2) + " - " + foodData.get(foodData.size() - counter - 1));
             tv.setTextColor(Color.parseColor("#000000"));
             linearLayout.addView(tv);
             counter++;
@@ -55,6 +55,7 @@ public class yoneticiekrani extends AppCompatActivity {
             counter++;
             counter++;
         }
+        /*
         hepsiniSil_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -67,7 +68,7 @@ public class yoneticiekrani extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(intent);
             }
-        });
+        });*/
 
     }
 
