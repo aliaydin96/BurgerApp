@@ -102,71 +102,96 @@ public class Grafikekrani extends AppCompatActivity {
         grafikcizdir_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                int i = 0;
                 int counter = 0;
                 int foodDate_day = 0;
-                String foodDate_month = "";
-                String foodDate_year = "";
+                int foodDate_month = 0;
+                int foodDate_year = 0;
+                int position = 0;
                 int gun = Integer.parseInt(gun_spinner.getSelectedItem().toString());
-                String ay = ay_spinner.getSelectedItem().toString();
-                String yil = yil_spinner.getSelectedItem().toString();
-                int position = grafikaraligi_spinner.getSelectedItemPosition();
+                int ay = Integer.parseInt(ay_spinner.getSelectedItem().toString());
+                int yil = Integer.parseInt(yil_spinner.getSelectedItem().toString());
+                String position_str = grafikaraligi_spinner.getSelectedItem().toString();
                 while(foodData.size() > counter){
-
-                    if(counter %4 == 3){
-                        foodDate_year = foodData.get(counter).split("-")[0];
-                        foodDate_month = foodData.get(counter).split("-")[1];
-                        foodDate_day = Integer.parseInt(foodData.get(counter).split("-")[2]);
-                    }
-                    for(int i = 0; i <= (7 * position); i++){
-
-                        if((gun == (foodDate_day - i)) & (ay.contentEquals(foodDate_month)) & (yil.contentEquals(foodDate_year))) {
-                            if (foodData.get(counter - 2).contentEquals("BBQ Burger")) {
-                                bbqburger_counter += Integer.parseInt(foodData.get(counter - 1));
-                            }
-                            if (foodData.get(counter - 2).contentEquals("Mushroom Burger")) {
-                                mushroomburger_counter += Integer.parseInt(foodData.get(counter - 1));
-                            }
-                            if (foodData.get(counter - 2).contentEquals("Double Cheese Burger")) {
-                                doublecheeseburger_counter += Integer.parseInt(foodData.get(counter - 1));
-                            }
-                            if (foodData.get(counter - 2).contentEquals("Cheese Burger")) {
-                                cheeseburger_counter += Integer.parseInt(foodData.get(counter - 1));
-                            }
-                            if (foodData.get(counter - 2).contentEquals("Chicken Burger")) {
-                                chickenburger_counter += Integer.parseInt(foodData.get(counter - 1));
-                            }
-                            if (foodData.get(counter - 2).contentEquals("Classic Burger")) {
-                                classicburger_counter += Integer.parseInt(foodData.get(counter - 1));
-                            }
-                            if (foodData.get(counter - 2).contentEquals("Su")) {
-                                su_counter += Integer.parseInt(foodData.get(counter - 1));
-                            }
-                            if (foodData.get(counter - 2).contentEquals("Ayran")) {
-                                ayran_counter += Integer.parseInt(foodData.get(counter - 1));
-                            }
-                            if (foodData.get(counter - 2).contentEquals("Fanta")) {
-                                fanta_counter += Integer.parseInt(foodData.get(counter - 1));
-                            }
-                            if (foodData.get(counter - 2).contentEquals("Kola")) {
-                                kola_counter += Integer.parseInt(foodData.get(counter - 1));
-                            }
-                            if (foodData.get(counter - 2).contentEquals("Sprite")) {
-                                sprite_counter += Integer.parseInt(foodData.get(counter - 1));
-                            }
-                            if (foodData.get(counter - 2).contentEquals("Icetea")) {
-                                icetea_counter += Integer.parseInt(foodData.get(counter - 1));
+                    if(counter %4 == 3) {
+                        if(position_str.contentEquals("Gunluk")) {
+                            foodDate_year = Integer.parseInt(foodData.get(counter).split("-")[0]);
+                            foodDate_month = Integer.parseInt(foodData.get(counter).split("-")[1]);
+                            foodDate_day = Integer.parseInt(foodData.get(counter).split("-")[2]);
+                            position = 1;
+                        }
+                        if(position_str.contentEquals("Haftalik")) {
+                            foodDate_year = Integer.parseInt(foodData.get(counter).split("-")[0]);
+                            foodDate_month = Integer.parseInt(foodData.get(counter).split("-")[1]);
+                            foodDate_day = Integer.parseInt(foodData.get(counter).split("-")[2]);
+                            position = 7;
+                        }
+                        if(position_str.contentEquals("Aylik")) {
+                            foodDate_year = Integer.parseInt(foodData.get(counter).split("-")[0]);
+                            foodDate_month = Integer.parseInt(foodData.get(counter).split("-")[1]);
+                            foodDate_day = 0;
+                            gun = 0;
+                            position = 1;
+                        }
+                        if(position_str.contentEquals("Yillik")) {
+                            foodDate_year = Integer.parseInt(foodData.get(counter).split("-")[0]);
+                            foodDate_day = 0;
+                            gun = 0;
+                            position = 1;
+                            ay = 0;
+                            foodDate_month = 0;
+                        }
+                        for (i = 0; i < position; i++) {
+                            if (((gun - i) == foodDate_day) & (ay == foodDate_month) & (yil == foodDate_year)) {
+                                if (foodData.get(counter - 2).contentEquals("BBQ Burger")) {
+                                    bbqburger_counter += Integer.parseInt(foodData.get(counter - 1));
+                                }
+                                if (foodData.get(counter - 2).contentEquals("Mushroom Burger")) {
+                                    mushroomburger_counter += Integer.parseInt(foodData.get(counter - 1));
+                                }
+                                if (foodData.get(counter - 2).contentEquals("Double Cheese Burger")) {
+                                    doublecheeseburger_counter += Integer.parseInt(foodData.get(counter - 1));
+                                }
+                                if (foodData.get(counter - 2).contentEquals("Cheese Burger")) {
+                                    cheeseburger_counter += Integer.parseInt(foodData.get(counter - 1));
+                                }
+                                if (foodData.get(counter - 2).contentEquals("Chicken Burger")) {
+                                    chickenburger_counter += Integer.parseInt(foodData.get(counter - 1));
+                                }
+                                if (foodData.get(counter - 2).contentEquals("Classic Burger")) {
+                                    classicburger_counter += Integer.parseInt(foodData.get(counter - 1));
+                                }
+                                if (foodData.get(counter - 2).contentEquals("Su")) {
+                                    su_counter += Integer.parseInt(foodData.get(counter - 1));
+                                }
+                                if (foodData.get(counter - 2).contentEquals("Ayran")) {
+                                    ayran_counter += Integer.parseInt(foodData.get(counter - 1));
+                                }
+                                if (foodData.get(counter - 2).contentEquals("Fanta")) {
+                                    fanta_counter += Integer.parseInt(foodData.get(counter - 1));
+                                }
+                                if (foodData.get(counter - 2).contentEquals("Kola")) {
+                                    kola_counter += Integer.parseInt(foodData.get(counter - 1));
+                                }
+                                if (foodData.get(counter - 2).contentEquals("Sprite")) {
+                                    sprite_counter += Integer.parseInt(foodData.get(counter - 1));
+                                }
+                                if (foodData.get(counter - 2).contentEquals("Icetea")) {
+                                    icetea_counter += Integer.parseInt(foodData.get(counter - 1));
+                                }
                             }
                         }
+                        foodDate_day = 0;
+                        foodDate_month = 0;
+                        foodDate_year = 0;
                     }
-                    foodDate_day = 0;
-                    foodDate_month = "";
-                    foodDate_year = "";
+
                     counter++;
                 }
                 data.notifyDataChanged();
                 barChart.notifyDataSetChanged();
                 barChart.invalidate();
-
+                barEntries.removeAll(barEntries);
                 barEntries.add(new BarEntry(1, bbqburger_counter));
                 barEntries.add(new BarEntry(2, mushroomburger_counter));
                 barEntries.add(new BarEntry(3, doublecheeseburger_counter));

@@ -83,6 +83,7 @@
     <string-array name="grafikaraligi">
         <item>Gunluk</item>
         <item>Haftalik</item>
+        <item>Aylik</item>
         <item>Yillik</item>
     </string-array>
 </resources>
