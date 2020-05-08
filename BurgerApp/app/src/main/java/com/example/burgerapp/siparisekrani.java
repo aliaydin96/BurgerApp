@@ -21,13 +21,19 @@ public class siparisekrani extends AppCompatActivity {
     Button siparisver_buton;
     Button bbqburger_ekle, bbqburger_cikar, mushroombur_ekle, mushroombur_cikar, doublecheeseburger_ekle, doublecheeseburger_cikar, cheeseburger_ekle, cheeseburger_cikar, chickenburger_ekle, chickenburger_cikar;
     Button classicburger_ekle, classicburger_cikar, su_ekle, su_cikar, ayran_ekle, ayran_cikar, kola_ekle, kola_cikar, fanta_ekle, fanta_cikar, icetea_ekle, icetea_cikar, sprite_ekle, sprite_cikar;
+    Button soganhalkasi_ekle, soganhalkasi_cikar, elmadilim_ekle, elmadilim_cikar, tirtiklipatates_ekle, tirtiklipatates_cikar, nugget_ekle, nugget_cikar;
     EditText bbqburger_number, mushroombur_number, doublecheeseburger_number, cheeseburger_number, chickenburger_number, classicburger_number, su_number, ayran_number, kola_number, fanta_number, sprite_number, icetea_number;
+    EditText elmadilim_number, tirtiklipatates_number, nugget_number, soganhalkasi_number;
     int bbqburger_counter = 0;
     int mushroombur_counter = 0;
     int doublecheeseburger_counter = 0;
     int cheeseburger_counter = 0;
     int chickenburger_counter = 0;
     int classicburger_counter = 0;
+    int elmadilim_counter = 0;
+    int tirtiklipatates_counter = 0;
+    int nugget_counter = 0;
+    int soganhalkasi_counter = 0;
     int su_counter = 0;
     int ayran_counter = 0;
     int kola_counter = 0;
@@ -58,6 +64,18 @@ public class siparisekrani extends AppCompatActivity {
         classicburger_ekle = findViewById(R.id.classicburger_ekle);
         classicburger_cikar = findViewById(R.id.classicburger_cikar);
         classicburger_number = findViewById(R.id.classicburger_number);
+        elmadilim_ekle = findViewById(R.id.elmadilim_ekle);
+        elmadilim_cikar = findViewById(R.id.elmadilim_cikar);
+        elmadilim_number = findViewById(R.id.elmadilim_number);
+        tirtiklipatates_ekle = findViewById(R.id.tirtiklipatates_ekle);
+        tirtiklipatates_cikar = findViewById(R.id.tirtiklipatates_cikar);
+        tirtiklipatates_number = findViewById(R.id.tirtiklipatates_number);
+        nugget_ekle = findViewById(R.id.nugget_ekle);
+        nugget_cikar = findViewById(R.id.nugget_cikar);
+        nugget_number = findViewById(R.id.nugget_number);
+        soganhalkasi_ekle = findViewById(R.id.soganhalkasi_ekle);
+        soganhalkasi_cikar = findViewById(R.id.soganhalkasi_cikar);
+        soganhalkasi_number = findViewById(R.id.soganhalkasi_number);
         su_ekle = findViewById(R.id.su_ekle);
         su_cikar = findViewById(R.id.su_cikar);
         su_number = findViewById(R.id.su_number);
@@ -87,6 +105,10 @@ public class siparisekrani extends AppCompatActivity {
                 intent.putExtra("cheeseburger", cheeseburger_counter);
                 intent.putExtra("chickenburger", chickenburger_counter);
                 intent.putExtra("classicburger", classicburger_counter);
+                intent.putExtra("elmadilim", elmadilim_counter);
+                intent.putExtra("tirtiklipatates", tirtiklipatates_counter);
+                intent.putExtra("nugget", nugget_counter);
+                intent.putExtra("soganhalkasi", soganhalkasi_counter);
                 intent.putExtra("su", su_counter);
                 intent.putExtra("fanta", fanta_counter);
                 intent.putExtra("kola", kola_counter);
@@ -202,9 +224,81 @@ public class siparisekrani extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(classicburger_counter > 0) {
-                    chickenburger_counter -= 1;
+                    classicburger_counter -= 1;
                     String classicburger_counter_string = Integer.toString(classicburger_counter);
                     classicburger_number.setText(classicburger_counter_string);
+                }
+            }
+        });
+        elmadilim_ekle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                elmadilim_counter += 1;
+                String elmadilim_counter_string = Integer.toString(elmadilim_counter);
+                elmadilim_number.setText(elmadilim_counter_string);
+            }
+        });
+        elmadilim_cikar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(elmadilim_counter > 0) {
+                    elmadilim_counter -= 1;
+                    String elmadilim_counter_string = Integer.toString(elmadilim_counter);
+                    elmadilim_number.setText(elmadilim_counter_string);
+                }
+            }
+        });
+        tirtiklipatates_ekle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tirtiklipatates_counter += 1;
+                String tirtiklipatates_counter_string = Integer.toString(tirtiklipatates_counter);
+                tirtiklipatates_number.setText(tirtiklipatates_counter_string);
+            }
+        });
+        tirtiklipatates_cikar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(tirtiklipatates_counter > 0) {
+                    tirtiklipatates_counter -= 1;
+                    String tirtiklipatates_counter_string = Integer.toString(tirtiklipatates_counter);
+                    tirtiklipatates_number.setText(tirtiklipatates_counter_string);
+                }
+            }
+        });
+        nugget_ekle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                nugget_counter += 1;
+                String nugget_counter_string = Integer.toString(nugget_counter);
+                nugget_number.setText(nugget_counter_string);
+            }
+        });
+        nugget_cikar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(nugget_counter > 0) {
+                    nugget_counter -= 1;
+                    String nugget_counter_string = Integer.toString(nugget_counter);
+                    nugget_number.setText(nugget_counter_string);
+                }
+            }
+        });
+        soganhalkasi_ekle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                soganhalkasi_counter += 1;
+                String soganhalkasi_counter_string = Integer.toString(soganhalkasi_counter);
+                soganhalkasi_number.setText(soganhalkasi_counter_string);
+            }
+        });
+        soganhalkasi_cikar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(soganhalkasi_counter > 0) {
+                    soganhalkasi_counter -= 1;
+                    String soganhalkasi_counter_string = Integer.toString(soganhalkasi_counter);
+                    soganhalkasi_number.setText(soganhalkasi_counter_string);
                 }
             }
         });

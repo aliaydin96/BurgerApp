@@ -35,6 +35,10 @@ public class Grafikekrani extends AppCompatActivity {
     int cheeseburger_counter = 0;
     int chickenburger_counter = 0;
     int classicburger_counter = 0;
+    int elmadilim_counter = 0;
+    int tirtiklipatates_counter = 0;
+    int nugget_counter = 0;
+    int soganhalkasi_counter = 0;
     int su_counter = 0;
     int ayran_counter = 0;
     int fanta_counter = 0;
@@ -77,12 +81,16 @@ public class Grafikekrani extends AppCompatActivity {
         barEntries.add(new BarEntry(4, cheeseburger_counter));
         barEntries.add(new BarEntry(5, chickenburger_counter));
         barEntries.add(new BarEntry(6, classicburger_counter));
-        barEntries.add(new BarEntry(7, su_counter));
-        barEntries.add(new BarEntry(8, ayran_counter));
-        barEntries.add(new BarEntry(9, fanta_counter));
-        barEntries.add(new BarEntry(10, kola_counter));
-        barEntries.add(new BarEntry(11, sprite_counter));
-        barEntries.add(new BarEntry(12, icetea_counter));
+        barEntries.add(new BarEntry(7, elmadilim_counter));
+        barEntries.add(new BarEntry(8, tirtiklipatates_counter));
+        barEntries.add(new BarEntry(9, nugget_counter));
+        barEntries.add(new BarEntry(10, soganhalkasi_counter));
+        barEntries.add(new BarEntry(11, su_counter));
+        barEntries.add(new BarEntry(12, ayran_counter));
+        barEntries.add(new BarEntry(13, fanta_counter));
+        barEntries.add(new BarEntry(14, kola_counter));
+        barEntries.add(new BarEntry(15, sprite_counter));
+        barEntries.add(new BarEntry(16, icetea_counter));
 
         barDataSet = new BarDataSet(barEntries, "Food Name");
         barDataSet.setColors(ColorTemplate.COLORFUL_COLORS);
@@ -161,6 +169,18 @@ public class Grafikekrani extends AppCompatActivity {
                                 if (foodData.get(counter - 2).contentEquals("Classic Burger")) {
                                     classicburger_counter += Integer.parseInt(foodData.get(counter - 1));
                                 }
+                                if (foodData.get(counter - 2).contentEquals("Elma Dilim Patates")) {
+                                    elmadilim_counter += Integer.parseInt(foodData.get(counter - 1));
+                                }
+                                if (foodData.get(counter - 2).contentEquals("Tırtıklı Patates")) {
+                                    tirtiklipatates_counter += Integer.parseInt(foodData.get(counter - 1));
+                                }
+                                if (foodData.get(counter - 2).contentEquals("Nugget")) {
+                                    nugget_counter += Integer.parseInt(foodData.get(counter - 1));
+                                }
+                                if (foodData.get(counter - 2).contentEquals("Soğan Halkası")) {
+                                    soganhalkasi_counter += Integer.parseInt(foodData.get(counter - 1));
+                                }
                                 if (foodData.get(counter - 2).contentEquals("Su")) {
                                     su_counter += Integer.parseInt(foodData.get(counter - 1));
                                 }
@@ -198,12 +218,16 @@ public class Grafikekrani extends AppCompatActivity {
                 barEntries.add(new BarEntry(4, cheeseburger_counter));
                 barEntries.add(new BarEntry(5, chickenburger_counter));
                 barEntries.add(new BarEntry(6, classicburger_counter));
-                barEntries.add(new BarEntry(7, su_counter));
-                barEntries.add(new BarEntry(8, ayran_counter));
-                barEntries.add(new BarEntry(9, fanta_counter));
-                barEntries.add(new BarEntry(10, kola_counter));
-                barEntries.add(new BarEntry(11, sprite_counter));
-                barEntries.add(new BarEntry(12, icetea_counter));
+                barEntries.add(new BarEntry(7, elmadilim_counter));
+                barEntries.add(new BarEntry(8, tirtiklipatates_counter));
+                barEntries.add(new BarEntry(9, nugget_counter));
+                barEntries.add(new BarEntry(10, soganhalkasi_counter));
+                barEntries.add(new BarEntry(11, su_counter));
+                barEntries.add(new BarEntry(12, ayran_counter));
+                barEntries.add(new BarEntry(13, fanta_counter));
+                barEntries.add(new BarEntry(14, kola_counter));
+                barEntries.add(new BarEntry(15, sprite_counter));
+                barEntries.add(new BarEntry(16, icetea_counter));
 
 
                 data.setBarWidth(0.5f);
@@ -218,6 +242,10 @@ public class Grafikekrani extends AppCompatActivity {
                 cheeseburger_counter = 0;
                 chickenburger_counter = 0;
                 classicburger_counter = 0;
+                elmadilim_counter = 0;
+                tirtiklipatates_counter = 0;
+                nugget_counter = 0;
+                soganhalkasi_counter = 0;
                 su_counter = 0;
                 ayran_counter = 0;
                 fanta_counter = 0;

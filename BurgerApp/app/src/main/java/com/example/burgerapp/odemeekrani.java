@@ -33,6 +33,10 @@ public class odemeekrani extends AppCompatActivity {
         final int cheeseburger_counter = gelenveri.getInt("cheeseburger");
         final int chickenburger_counter = gelenveri.getInt("chickenburger");
         final int classicburger_counter = gelenveri.getInt("classicburger");
+        final int elmadilim_counter = gelenveri.getInt("elmadilim");
+        final int nugget_counter = gelenveri.getInt("nugget");
+        final int soganhalkasi_counter = gelenveri.getInt("soganhalkasi");
+        final int tirtiklipatates_counter = gelenveri.getInt("tirtiklipatates");
         final int su_counter = gelenveri.getInt("su");
         final int ayran_counter = gelenveri.getInt("ayran");
         final int fanta_counter = gelenveri.getInt("fanta");
@@ -65,6 +69,18 @@ public class odemeekrani extends AppCompatActivity {
                 }
                 if(classicburger_counter > 0){
                     foodDatabaseHelper.addFoodData(masaNo,"Classic Burger", classicburger_counter, date);
+                }
+                if(elmadilim_counter > 0){
+                    foodDatabaseHelper.addFoodData(masaNo,"Elma Dilim Patates", elmadilim_counter, date);
+                }
+                if(tirtiklipatates_counter > 0){
+                    foodDatabaseHelper.addFoodData(masaNo,"Tırtıklı Patates", tirtiklipatates_counter, date);
+                }
+                if(nugget_counter > 0){
+                    foodDatabaseHelper.addFoodData(masaNo,"Nugget", nugget_counter, date);
+                }
+                if(soganhalkasi_counter > 0){
+                    foodDatabaseHelper.addFoodData(masaNo,"Soğan Halkası", soganhalkasi_counter, date);
                 }
                 if(su_counter > 0){
                     foodDatabaseHelper.addFoodData(masaNo,"Su", su_counter, date);

@@ -21,6 +21,10 @@ public class siparisekraniliste extends AppCompatActivity {
     int cheeseburger_fiyat = 30;
     int chickenburger_fiyat = 22;
     int classicburger_fiyat = 25;
+    int soganhalkasi_fiyat = 8;
+    int elmadilim_fiyat = 7;
+    int tirtiklipatates_fiyat = 7;
+    int nugget_fiyat = 10;
     int su_fiyat = 2;
     int ayran_fiyat = 3;
     int fanta_fiyat = 6;
@@ -41,6 +45,10 @@ public class siparisekraniliste extends AppCompatActivity {
         final int cheeseburger_counter = gelenveri.getInt("cheeseburger");
         final int chickenburger_counter = gelenveri.getInt("chickenburger");
         final int classicburger_counter = gelenveri.getInt("classicburger");
+        final int elmadilim_counter = gelenveri.getInt("elmadilim");
+        final int nugget_counter = gelenveri.getInt("nugget");
+        final int soganhalkasi_counter = gelenveri.getInt("soganhalkasi");
+        final int tirtiklipatates_counter = gelenveri.getInt("tirtiklipatates");
         final int su_counter = gelenveri.getInt("su");
         final int ayran_counter = gelenveri.getInt("ayran");
         final int fanta_counter = gelenveri.getInt("fanta");
@@ -53,6 +61,10 @@ public class siparisekraniliste extends AppCompatActivity {
         cheeseburger_fiyat = cheeseburger_fiyat * cheeseburger_counter;
         classicburger_fiyat = classicburger_fiyat * classicburger_counter;
         chickenburger_fiyat = chickenburger_fiyat * chickenburger_counter;
+        elmadilim_fiyat = elmadilim_fiyat * elmadilim_counter;
+        nugget_fiyat = nugget_fiyat * nugget_counter;
+        tirtiklipatates_fiyat = tirtiklipatates_fiyat * tirtiklipatates_counter;
+        soganhalkasi_fiyat = soganhalkasi_fiyat * soganhalkasi_counter;
         su_fiyat = su_fiyat * su_counter;
         ayran_fiyat = ayran_fiyat * ayran_counter;
         kola_fiyat = kola_fiyat * kola_counter;
@@ -117,6 +129,17 @@ public class siparisekraniliste extends AppCompatActivity {
             tv.setTextColor(Color.parseColor("#000000"));
             linearLayout.addView(tv);
         }
+        if(elmadilim_counter > 0){
+            TextView tv = new TextView(getApplicationContext());
+            LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
+                    RelativeLayout.LayoutParams.WRAP_CONTENT, // Width of TextView
+                    RelativeLayout.LayoutParams.WRAP_CONTENT); // Height of TextView
+            tv.setTextSize(22);
+            tv.setLayoutParams(lp);
+            tv.setText(elmadilim_counter + " X Elma Dilim Patates " + elmadilim_fiyat + " TL");
+            tv.setTextColor(Color.parseColor("#000000"));
+            linearLayout.addView(tv);
+        }
         if(chickenburger_counter > 0){
             TextView tv = new TextView(getApplicationContext());
             LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
@@ -125,6 +148,39 @@ public class siparisekraniliste extends AppCompatActivity {
             tv.setTextSize(22);
             tv.setLayoutParams(lp);
             tv.setText(chickenburger_counter + " X Chicken Burger " + chickenburger_fiyat + " TL");
+            tv.setTextColor(Color.parseColor("#000000"));
+            linearLayout.addView(tv);
+        }
+        if(tirtiklipatates_counter > 0){
+            TextView tv = new TextView(getApplicationContext());
+            LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
+                    RelativeLayout.LayoutParams.WRAP_CONTENT, // Width of TextView
+                    RelativeLayout.LayoutParams.WRAP_CONTENT); // Height of TextView
+            tv.setTextSize(22);
+            tv.setLayoutParams(lp);
+            tv.setText(tirtiklipatates_counter + " X Tirtikli Patates " + tirtiklipatates_fiyat + " TL");
+            tv.setTextColor(Color.parseColor("#000000"));
+            linearLayout.addView(tv);
+        }
+        if(nugget_counter > 0){
+            TextView tv = new TextView(getApplicationContext());
+            LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
+                    RelativeLayout.LayoutParams.WRAP_CONTENT, // Width of TextView
+                    RelativeLayout.LayoutParams.WRAP_CONTENT); // Height of TextView
+            tv.setTextSize(22);
+            tv.setLayoutParams(lp);
+            tv.setText(nugget_counter + " X Nugget " + nugget_fiyat + " TL");
+            tv.setTextColor(Color.parseColor("#000000"));
+            linearLayout.addView(tv);
+        }
+        if(soganhalkasi_counter > 0){
+            TextView tv = new TextView(getApplicationContext());
+            LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
+                    RelativeLayout.LayoutParams.WRAP_CONTENT, // Width of TextView
+                    RelativeLayout.LayoutParams.WRAP_CONTENT); // Height of TextView
+            tv.setTextSize(22);
+            tv.setLayoutParams(lp);
+            tv.setText(soganhalkasi_counter + " X Sogan Halkasi " + soganhalkasi_fiyat + " TL");
             tv.setTextColor(Color.parseColor("#000000"));
             linearLayout.addView(tv);
         }
@@ -195,7 +251,7 @@ public class siparisekraniliste extends AppCompatActivity {
             linearLayout.addView(tv);
         }
 
-        int ToplamFiyat = bbqburger_fiyat + mushroomburger_fiyat + doublecheeseburger_fiyat + cheeseburger_fiyat + chickenburger_fiyat + classicburger_fiyat + su_fiyat + ayran_fiyat + kola_fiyat + fanta_fiyat + icetea_fiyat + sprite_fiyat;
+        int ToplamFiyat = bbqburger_fiyat + mushroomburger_fiyat + doublecheeseburger_fiyat + cheeseburger_fiyat + chickenburger_fiyat + classicburger_fiyat + nugget_fiyat + tirtiklipatates_fiyat + elmadilim_fiyat + soganhalkasi_fiyat +  su_fiyat + ayran_fiyat + kola_fiyat + fanta_fiyat + icetea_fiyat + sprite_fiyat;
 
         TextView tv = new TextView(getApplicationContext());
         LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
@@ -218,6 +274,10 @@ public class siparisekraniliste extends AppCompatActivity {
                 intent.putExtra("cheeseburger", cheeseburger_counter);
                 intent.putExtra("classicburger", classicburger_counter);
                 intent.putExtra("chickenburger", chickenburger_counter);
+                intent.putExtra("elmadilim", elmadilim_counter);
+                intent.putExtra("soganhalkasi", soganhalkasi_counter);
+                intent.putExtra("nugget", nugget_counter);
+                intent.putExtra("tirtiklipatates", tirtiklipatates_counter);
                 intent.putExtra("su", su_counter);
                 intent.putExtra("ayran", ayran_counter);
                 intent.putExtra("kola", kola_counter);
