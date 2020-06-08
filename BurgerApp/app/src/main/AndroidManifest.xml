@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Grafikekrani"></activity>
+        <activity android:name=".grafiklisteekrani"></activity>
+        <activity android:name=".Grafikekrani" />
         <activity android:name=".uyelistesi" />
         <activity android:name=".odemeekrani" />
         <activity android:name=".siparisekraniliste" />

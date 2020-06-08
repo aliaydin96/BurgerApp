@@ -2,6 +2,7 @@ package com.example.burgerapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -28,7 +29,7 @@ public class Grafikekrani extends AppCompatActivity {
     BarChart barChart;
     FoodDatabaseHelper foodDatabaseHelper;
     Spinner gun_spinner, ay_spinner, yil_spinner, grafikaraligi_spinner;
-    Button grafikcizdir_button;
+    Button grafikcizdir_button, listele_button;
     int bbqburger_counter = 0;
     int mushroomburger_counter = 0;
     int doublecheeseburger_counter = 0;
@@ -59,6 +60,15 @@ public class Grafikekrani extends AppCompatActivity {
         yil_spinner = findViewById(R.id.yil_spinner);
         grafikaraligi_spinner = findViewById(R.id.grafikaraligi_spinner);
         grafikcizdir_button = findViewById(R.id.grafikcizdir_button);
+        listele_button = findViewById(R.id.grafikekranilistelebutonu);
+
+        listele_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), grafiklisteekrani.class);
+                startActivity(intent);
+            }
+        });
 
         String date = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date());
         String date_year = date.split("-")[0];
